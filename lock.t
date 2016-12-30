@@ -564,7 +564,7 @@ must already have acquired
 .code ptable.lock .
 In addition,
 .code fork
-amd
+and
 .code userinit
 must call
 .code allocproc
