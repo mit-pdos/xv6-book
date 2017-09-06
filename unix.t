@@ -386,7 +386,7 @@ char buf[512];
 int n;
 
 for(;;){
-  n = read(0, buf, sizeof buf);
+  n = read(0, buf, sizeof(buf));
   if(n == 0)
     break;
   if(n < 0){
