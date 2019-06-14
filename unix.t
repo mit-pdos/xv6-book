@@ -792,7 +792,7 @@ and
 system calls to the kernel device implementation
 instead of passing them to the file system.
 .PP
-.code fstat
+.code Fstat
 retrieves information about the object a file
 descriptor refers to.
 It fills in a
