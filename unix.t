@@ -881,7 +881,7 @@ One exception is
 .code cd ,
 which is built into the shell
 .line sh.c:/if.buf.0..==..c./ .
-.code cd
+.code Cd
 must change the current working directory of the
 shell itself.  If
 .code cd
