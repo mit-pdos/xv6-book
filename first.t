@@ -339,7 +339,7 @@ to run, running, waiting for I/O, or exiting.
 .code-index p->pgdir
 holds the process's page table, in the format
 that the x86 hardware expects.
-xv6 causes the paging hardware to use a process's
+Xv6 causes the paging hardware to use a process's
 .code p->pgdir
 when executing that process.
 A process's page table also serves as the record of the
