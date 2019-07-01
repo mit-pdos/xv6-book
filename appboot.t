@@ -95,7 +95,7 @@ otherwise the processor uses linear addresses as physical addresses.
 .PP
 The boot loader does not enable the paging hardware;
 the logical addresses that it uses are translated to linear
-addresses by the segmentation harware, and then used directly
+addresses by the segmentation hardware, and then used directly
 as physical addresses.
 Xv6 configures the segmentation hardware to translate logical
 to linear addresses without change, so that they are always equal.
