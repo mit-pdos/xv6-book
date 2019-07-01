@@ -302,7 +302,7 @@ as we have seen in Chapter \*[CH:MEM].
 To get access to the ELF headers,
 .code bootmain
 loads the first 4096 bytes of the ELF binary
-.line bootmain.c:/readseg/ .
+.line bootmain.c:/readseg..uchar..elf/ .
 It places the in-memory copy at address
 .address 0x10000 .
 .ig
