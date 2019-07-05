@@ -531,7 +531,7 @@ sets the state to
 to mark it as used and
 gives the process a unique
 .code-index pid
-.lines proc.c:/EMBRYO/,/nextpid/ .
+.lines proc.c:/p..state.=.EMBRYO/,/nextpid/ .
 Next, it tries to allocate a kernel stack for the
 process's kernel thread.  If the memory allocation fails, 
 .code allocproc
