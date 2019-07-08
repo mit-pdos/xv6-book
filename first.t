@@ -483,7 +483,7 @@ otherwise generate a PC-relative direct jump, which would execute
 the low-memory version of 
 .code-index main .
 .code Main
-cannot return, since the there's no return PC on the stack.
+cannot return, since there is no return PC on the stack.
 Now the kernel is running in high addresses in the function
 .code-index main 
 .line main.c:/^main/ .
