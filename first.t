@@ -856,7 +856,7 @@ Finally, the
 instruction pops 
 .register cs ,
 .register eip ,
-.register flags ,
+.register eflags ,
 .register esp ,
 and
 .register ss
