@@ -543,18 +543,18 @@ and returns zero to signal failure.
 Now
 .code allocproc
 must set up the new process's kernel stack.
-.code allocproc
+.code Allocproc
 is written so that it can be used by 
 .code fork
 as well
 as when creating the first process.
-.code allocproc
+.code Allocproc
 sets up the new process with a specially prepared kernel
 stack and set of kernel registers that cause it to ``return'' to user
 space when it first runs.
 The layout of the prepared kernel stack will be as shown in 
 .figref newkernelstack .
-.code allocproc
+.code Allocproc
 does part of this work by setting up return program counter
 values that will cause the new process's kernel thread to first execute in
 .code-index forkret
@@ -578,7 +578,7 @@ The context switch code
 .line swtch.S:/^swtch/
 sets the stack pointer to point just beyond the end of
 .code p->context .
-.code allocproc
+.code Allocproc
 places
 .code p->context
 on the stack, and puts a pointer to
@@ -748,7 +748,7 @@ works because
 .code-index setupkvm
 causes all processes' page tables to have identical
 mappings for kernel code and data.
-.code switchuvm
+.code Switchuvm
 also sets up a task state segment
 .code-index SEG_TSS
 that instructs the hardware to
@@ -765,7 +765,7 @@ and calls
 .code-index swtch
 .line swtch.S:/^swtch/ 
 to perform a context switch to the target process's kernel thread.
-.code swtch 
+.code Swtch 
 first saves the current registers.
 The current context is not a process but rather a special
 per-cpu scheduler context, so
@@ -775,7 +775,7 @@ tells
 to save the current hardware registers in per-cpu storage
 .code-index cpu->scheduler ) (
 rather than in any process's kernel thread context.
-.code swtch
+.code Swtch
 then loads the saved registers
 of the target kernel thread
 .code p->context ) (
