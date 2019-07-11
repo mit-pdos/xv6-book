@@ -5,5 +5,5 @@ Layout of the virtual address space of a process and the layout of the physical 
 between 
 .code KERNBASE 
 and
-.code 0xFE00000.
+.code 0xFE000000.
 .F3
