@@ -34,8 +34,8 @@ present, and so on.  Third, an
 when a device generates a signal to indicate that
 it needs attention from the operating system.  For example, a clock chip may
 generate an interrupt every 100 msec to allow the kernel to implement
-time sharing.  As another example, when the disk has read a block from
-disk, it generates an interrupt to alert the operating system that the
+time sharing.  As another example, when the disk controller has read a block
+from disk, it generates an interrupt to alert the operating system that the
 block is ready to be retrieved.
 .PP
 The kernel handles all interrupts, rather than processes
