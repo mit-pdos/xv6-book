@@ -400,7 +400,7 @@ The trap frame contains all the information necessary
 to restore the user mode processor registers
 when the kernel returns to the current process,
 so that the processor can continue exactly as it was when
-the trap started.  Recall from Chapter \*[CH:MEM], that 
+the trap started.  Recall from Chapter \*[CH:FIRST], that 
 .code userinit
 built a trapframe by hand to achieve this goal (see 
 .figref first:newkernelstack ).
@@ -463,7 +463,7 @@ adding to the stack pointer
 and then starts executing the code at
 label
 .code-index trapret .
-We traced through this code in Chapter \*[CH:MEM]
+We traced through this code in Chapter \*[CH:FIRST]
 when the first user process ran it to exit to user space.
 The same sequence happens here: popping through
 the trap frame restores the user mode registers and then
