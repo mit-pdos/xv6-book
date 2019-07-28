@@ -90,7 +90,7 @@ those come bitmap blocks tracking which data blocks are in use.
 The remaining blocks are data blocks; each is either marked
 free in the bitmap block, or holds content for a file or directory.
 The superblock is filled in by a separate program, called
-.code-index mfks ,
+.code-index mkfs ,
 which builds an initial file system.
 .PP
 The rest of this chapter discusses each layer, starting with the
