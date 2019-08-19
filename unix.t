@@ -758,7 +758,6 @@ The first fragment changes the process's current directory to
 .code /a/b ;
 the second neither refers to nor changes the process's current directory.
 .PP
-.PP
 There are multiple system calls to create a new file or directory:
 .code mkdir
 creates a new directory,

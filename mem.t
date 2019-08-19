@@ -594,7 +594,6 @@ allocates enough physical memory to hold 2252 bytes, but reads only 2240 bytes
 from the file
 .code /init .
 .PP
-.PP
 Now
 .code-index exec
 allocates and initializes the user stack.
@@ -656,7 +655,6 @@ and free the old one
 Finally,
 .code exec
 returns 0.
-.PP
 .PP
 .code Exec
 loads bytes from the ELF file into memory at addresses specified by the ELF file.
