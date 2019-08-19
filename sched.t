@@ -960,7 +960,7 @@ and skips them entirely
 .line proc.c:/sleeplock0/ .
 For example,
 .code wait
-.line 'proc.c:/^wakeup!(/'
+.line 'proc.c:/^wait/'
 calls
 .code sleep
 with 
