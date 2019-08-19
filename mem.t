@@ -430,7 +430,7 @@ contains the text for the user program, its data, and its stack.
 The heap is above the stack so that the heap can expand when the process
 calls
 .code-index sbrk .
-Note that the text, data, and stack sections are layed out contiguously in the
+Note that the text, data, and stack sections are laid out contiguously in the
 process's address space but xv6 is free to use non-contiguous physical pages for
 those sections. For example, when xv6 expands a process's heap, it can use any
 free physical page for the new virtual page and then program the page table
