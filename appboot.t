@@ -176,7 +176,7 @@ These permissions are the protection in protected mode: the
 kernel can use them to ensure that a program uses only its
 own memory.
 .PP 
-xv6 makes almost no use of segments; it uses the paging hardware
+Xv6 makes almost no use of segments; it uses the paging hardware
 instead, as Chapter \*[CH:MEM] describes.
 The boot loader sets up the segment descriptor table
 .code-index gdt

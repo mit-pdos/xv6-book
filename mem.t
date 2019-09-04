@@ -14,7 +14,7 @@ Page tables are the mechanism through which the operating system controls what
 memory addresses mean.  They allow xv6 to multiplex the address spaces of
 different processes onto a single physical memory, and to protect the memories
 of different processes.  The level of indirection provided by page tables allows
-many neat tricks.  xv6 uses page
+many neat tricks.  Xv6 uses page
 tables primarily to
 multiplex address spaces and to protect memory.  It also uses a few
 simple page-table tricks: mapping the same memory (the kernel) in several address spaces,
@@ -132,7 +132,7 @@ When a process asks xv6 for more memory,
 xv6 first finds free physical pages to provide the storage,
 and then adds PTEs to the process's page table that point
 to the new physical pages.
-xv6 sets the
+Xv6 sets the
 .code PTE_U ,
 .code PTE_W ,
 and
@@ -191,7 +191,7 @@ table; it is almost always borrowing some process's page table.
 .PP
 To review, xv6 ensures that each process can use only its own memory.  And, each
 process sees its memory as having contiguous virtual addresses starting at zero,
-while the process's physical memory can be non-contiguous.  xv6 implements the
+while the process's physical memory can be non-contiguous.  Xv6 implements the
 first by setting the
 .code-index PTE_U
 bit only on PTEs of virtual addresses that refer to the process's own memory.  It
@@ -224,7 +224,7 @@ The translations include the kernel's
 instructions and data, physical memory up to
 .code-index PHYSTOP ,
 and memory ranges which are actually I/O devices.
-.code setupkvm
+.code Setupkvm
 does not install any mappings for the user memory;
 this will happen later.
 .PP
@@ -255,7 +255,7 @@ to mark the PTE as valid
 mimics the actions of the x86 paging hardware as it
 looks up the PTE for a virtual address (see
 .figref x86_pagetable ).
-.code walkpgdir
+.code Walkpgdir
 uses the upper 10 bits of the virtual address to find
 the page directory entry
 .line vm.c:/pde.=..pgdir/ .
@@ -279,7 +279,7 @@ process user memory,
 kernel stacks,
 and pipe buffers.
 .PP
-xv6 uses the physical memory between the end of the kernel and
+Xv6 uses the physical memory between the end of the kernel and
 .code-index PHYSTOP
 for run-time allocation. It allocates and frees whole 4096-byte pages
 at a time. It keeps track of which pages are free by threading a
@@ -290,7 +290,7 @@ freed page to the list.
 There is a bootstrap problem: all of physical memory must be mapped in
 order for the allocator to initialize the free list, but creating a
 page table with those mappings involves allocating page-table pages.
-xv6 solves this problem by using a separate page allocator during
+Xv6 solves this problem by using a separate page allocator during
 entry, which allocates memory just after the end of the kernel's data
 segment. This allocator does not support freeing and is limited by the
 4 MB mapping in the
@@ -343,7 +343,7 @@ sets up for lock-less allocation in the first 4 megabytes,
 and the call to
 .code kinit2
 enables locking and arranges for more memory to be allocatable.
-.code main
+.code Main
 ought to determine how much physical
 memory is available, but this
 turns out to be difficult on the x86.
@@ -354,7 +354,7 @@ of physical memory, and uses all the memory between the end of the kernel
 and
 .code-index PHYSTOP
 as the initial pool of free memory.
-.code kinit1
+.code Kinit1
 and
 .code kinit2
 call
@@ -548,7 +548,7 @@ allocates memory for each ELF segment with
 and loads each segment into memory with
 .code-index loaduvm
 .line exec.c:/loaduvm/ .
-.code allocuvm
+.code Allocuvm
 checks that the virtual addresses requested
 is below
 .address KERNBASE .
@@ -667,7 +667,7 @@ is risky, because the addresses in the ELF file may refer to the kernel, acciden
 or on purpose. The consequences for an unwary kernel could range from
 a crash to a malicious subversion of the kernel's isolation mechanisms
 (i.e., a security exploit).
-xv6 performs a number of checks to avoid these risks.
+Xv6 performs a number of checks to avoid these risks.
 To understand the importance of these checks, consider what could happen
 if xv6 didn't check
 .code "if(ph.vaddr + ph.memsz < ph.vaddr)" .
