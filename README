@@ -1,5 +1,5 @@
 NOTE: We have stopped maintaining the x86 book for xv6 but have switched the book to RISC-V (see
-the xv6-riscv branch or https://github.com/mit-pdos/xv6-riscv-book/).
+https://github.com/mit-pdos/xv6-riscv-book/).
 
 ---
 
