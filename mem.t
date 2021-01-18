@@ -375,8 +375,10 @@ give it some to manage.
 The allocator refers to physical pages by their virtual
 addresses as mapped in high memory, not by their physical
 addresses, which is why
+.code main
+calls
 .code kinit
-uses
+with
 .code P2V(PHYSTOP)
 to translate
 .code PHYSTOP
@@ -385,7 +387,7 @@ to a virtual address.
 The allocator sometimes treats addresses as integers
 in order to perform arithmetic on them (e.g.,
 traversing all pages in
-.code kinit ),
+.code freerange ),
 and sometimes uses addresses as pointers to read and
 write memory (e.g., manipulating the
 .code run
