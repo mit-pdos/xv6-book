@@ -987,7 +987,7 @@ Implement support for this convention in xv6.
 .code "if(ph.vaddr + ph.memsz < ph.vaddr)"
 in
 .code exec.c ,
-and construct a user  program that exploits that the check is missing.
+and construct a user program that exploits that the check is missing.
 .PP
 8. Change xv6 so that user processes run with only a minimal part of the kernel
 mapped and so that the kernel runs with its own page table that doesn't include

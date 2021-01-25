@@ -608,7 +608,7 @@ if a user program tries to read or write memory at an address of
 or above, the processor will cause a segmentation trap, and trap will
 kill the process, as we saw above.
 The kernel, however,
-can derefence any address that the user might have passed, so it must check explicitly that the address is below
+can dereference any address that the user might have passed, so it must check explicitly that the address is below
 .code p->sz .
 .PP
 .code-index argptr
