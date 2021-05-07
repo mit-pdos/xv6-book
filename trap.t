@@ -962,7 +962,7 @@ If the buffer is at the front of the queue,
 must send it to the disk hardware
 by calling
 .code-index idestart
-.line ide.c:/Start.disk/,/idestart/ ;
+.line ide.c:/Start.disk.if.necessary/,/idestart/ ;
 otherwise the buffer will be started once
 the buffers ahead of it are taken care of.
 .PP
