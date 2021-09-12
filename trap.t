@@ -313,7 +313,7 @@ which allows a user program to generate
 the trap with an explicit
 .code int
 instruction.
-xv6 doesn't allow processes to raise other interrupts (e.g., device
+Xv6 doesn't allow processes to raise other interrupts (e.g., device
 interrupts) with
 .code int ;
 if they try, they will encounter
@@ -362,7 +362,7 @@ and
 .register cs
 from the relevant IDT entry.
 .PP
-xv6 uses a Perl script
+Xv6 uses a Perl script
 .line vectors.pl:1
 to generate the entry points that the IDT entries point to.
 Each entry pushes an error code
@@ -591,12 +591,12 @@ The arguments are right above it, at
 Then the nth argument is at 
 .register esp+4+4*n.  
 .PP
-.code argint 
+.code Argint 
 calls 
 .code-index fetchint
 to read the value at that address from user memory and write it to
 .code *ip .  
-.code fetchint 
+.code Fetchint 
 can simply cast the address to a pointer, because the user and the
 kernel share the same page table, but the kernel must verify that the
 pointer lies within the user part of the address
@@ -974,7 +974,7 @@ If the operation is a write,
 .code idestart
 must supply the data now
 .line ide.c:/outsl/ .
-.code idestart
+.code Idestart
 moves the data to a buffer in the disk controller
 using the
 .code outsl
