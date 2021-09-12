@@ -169,7 +169,7 @@ to be written to the disk.
 .line bio.c:/^bread/
 calls
 .code-index bget
-to get a buffer for the given sector
+to get a buffer for the given block
 .line bio.c:/b.=.bget/ .
 If the buffer needs to be read from disk,
 .code bread
@@ -179,7 +179,7 @@ to do that before returning the buffer.
 .PP
 .code Bget
 .line bio.c:/^bget/
-scans the buffer list for a buffer with the given device and sector numbers
+scans the buffer list for a buffer with the given device and block numbers
 .lines bio.c:/Is.the.block.already/,/^..}/ .
 If there is such a buffer,
 .code-index bget
@@ -187,15 +187,15 @@ acquires the sleep-lock for the buffer.
 .code bget
 then returns the locked buffer.
 .PP
-If there is no cached buffer for the given sector,
+If there is no cached buffer for the given block,
 .code-index bget
 must make one, possibly reusing a buffer that held
-a different sector.
+a different block.
 It scans the buffer list a second time, looking for a buffer
 that is not locked and not dirty:
 any such buffer can be used.
 .code Bget
-edits the buffer metadata to record the new device and sector number
+edits the buffer metadata to record the new device and block number
 and acquires its sleep-lock.
 Note that the assignment to
 .code flags
@@ -207,7 +207,7 @@ will read the block data from disk
 rather than incorrectly using the buffer's previous contents.
 .PP
 It is important that there is at most one cached buffer per
-disk sector, to ensure that readers see writes, and because the
+disk block, to ensure that readers see writes, and because the
 file system uses locks on buffers for synchronization.
 .code bget
 ensures this invariant by holding the
@@ -359,7 +359,7 @@ operation's writes appear on the disk, or none of them appear.
 The log resides at a known fixed location, specified in the superblock.
 It consists of a header block followed by a sequence
 of updated block copies (``logged blocks'').
-The header block contains an array of sector
+The header block contains an array of block
 numbers, one for each of the logged blocks, and 
 the count of log blocks.
 The count in the header block on disk is either
@@ -460,7 +460,7 @@ distinct blocks.
 .line log.c:/^log.write/
 acts as a proxy for 
 .code-index bwrite .
-It records the block's sector number in memory,
+It records the block number in memory,
 reserving it a slot in the log on disk,
 and marks the buffer
 .code B_DIRTY
@@ -533,7 +533,7 @@ The transaction looks like this:
       end_op();
 .P2
 This code is wrapped in a loop that breaks up large writes into individual
-transactions of just a few sectors at a time, to avoid overflowing
+transactions of just a few blocks at a time, to avoid overflowing
 the log.  The call to
 .code-index writei
 writes many blocks as part of this

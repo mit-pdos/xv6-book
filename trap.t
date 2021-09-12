@@ -788,11 +788,12 @@ from and back to the disk.  Disk hardware traditionally presents the data on the
 disk as a numbered sequence of 512-byte 
 .italic blocks 
 .index block
-(also called 
+(not to be confused with 
 .italic sectors ): 
 .index sector
-sector 0 is the first 512 bytes, sector 1 is the next, and so on. The block size
+block 0 is the first 512 bytes, block 1 is the next, and so on. The block size
 that an operating system uses for its file system maybe different than the
+hardware
 sector size that a disk uses, but typically the block size is a multiple of the
 sector size.  Xv6's block size is identical to the disk's sector size.  To
 represent a block xv6 has a structure
@@ -801,7 +802,7 @@ represent a block xv6 has a structure
 The
 data stored in this structure is often out of sync with the disk: it might have
 not yet been read in from disk (the disk is working on it but hasn't returned
-the sector's content yet), or it might have been updated but not yet written
+the block's content yet), or it might have been updated but not yet written
 out.  The driver must ensure that the rest of xv6 doesn't get confused when the
 structure is out of sync with the disk.
 .\"
@@ -826,11 +827,11 @@ each buffer represents the contents of one sector on a particular
 disk device.  The
 .code dev
 and
-.code sector
-fields give the device and sector
+.code blockno
+fields give the device and block
 number and the
 .code data
-field is an in-memory copy of the disk sector.
+field is an in-memory copy of the corresponding sector(s) on disk.
 Although the xv6 file system chooses
 .code BSIZE
 to be identical to the IDE's sector size, the driver can handle
@@ -968,7 +969,7 @@ the buffers ahead of it are taken care of.
 .PP
 .code Idestart
 .line ide.c:/^idestart/
-issues either a read or a write for the buffer's device and sector,
+issues either a read or a write for the buffer's device and block number,
 according to the flags.
 If the operation is a write,
 .code idestart
