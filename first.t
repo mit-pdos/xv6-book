@@ -419,7 +419,7 @@ This entry will be used by the kernel after
 has finished; it maps the high virtual addresses at which
 the kernel expects to find its instructions and data
 to the low physical addresses where the boot loader loaded them.
-This mapping restricts the kernel instructions and data to 4 Mbytes.
+This mapping restricts the kernel instructions and data to 4 Mebibytes.
 .PP
 Returning to
 .code entry,
