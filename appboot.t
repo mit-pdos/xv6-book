@@ -154,7 +154,7 @@ controller on ports 0x64 and 0x60
 Real mode's 16-bit general-purpose and segment registers
 make it awkward for a program to use more than 65,536 bytes
 of memory, and impossible to use more than a megabyte.
-x86 processors since the 80286 have a 
+X86 processors since the 80286 have a 
 .italic-index "protected mode" ,
 which allows physical addresses to have many more bits, and 
 (since the 80386)

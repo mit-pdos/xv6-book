@@ -193,8 +193,8 @@ replaces the calling process's memory with a new memory
 image loaded from a file stored in the file system.
 The file must have a particular format, which specifies which part of
 the file holds instructions, which part is data, at which instruction
-to start, etc. xv6
-uses the ELF format, which Chapter \*[CH:MEM] discusses in
+to start, etc.
+Xv6 uses the ELF format, which Chapter \*[CH:MEM] discusses in
 more detail.
 When
 .code-index exec
